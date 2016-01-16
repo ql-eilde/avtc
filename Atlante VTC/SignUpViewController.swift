@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Parse
 
 class SignUpViewController: UIViewController {
     
-    @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var username: UITextField!
     @IBOutlet weak var riderDriverControl: UISegmentedControl!
     
     var buttonTitlePressed: String?
@@ -36,7 +37,54 @@ class SignUpViewController: UIViewController {
     }
 
     @IBAction func done(sender: UIBarButtonItem) {
+
+        if isSignIn == false {
+            //Register the user
+            
+            if self.username.text == "" || self.password.text == "" || self.riderDriverControl.selectedSegmentIndex == -1 {
+                if self.username.text == "" {
+                    self.username.layer.borderColor = UIColor.redColor().CGColor
+                    self.username.layer.borderWidth = 1.0
+                }
+                if self.password.text == "" {
+                    self.password.layer.borderColor = UIColor.redColor().CGColor
+                    self.password.layer.borderWidth = 1.0
+                }
+                if self.riderDriverControl.selectedSegmentIndex == -1 {
+                    self.riderDriverControl.layer.borderColor = UIColor.redColor().CGColor
+                    self.riderDriverControl.layer.borderWidth = 1.0
+                    
+                    self.showAlert("Missing Field Required", message: "Fill in or select missing Field(s) in red")
+                }
+            }
+            else {
+                isSignIn = true
+            }
+            
+        }
+        if isSignIn == true {
+            //Sign in code
+    
+            var user = PFUser()
+            
+            user.username = self.username.text
+            user.password = self.password.text
+            
+            user["isRider"] = self.isRider
+            
+            user.signUpInBackgroundWithBlock {
+                (succeeded: Bool, error: NSError?) -> Void in
+                if let error = error {
+                    let errorString = error.userInfo["error"] as? NSString
+                    self.showAlert("Error Registering", message: String(errorString))
+                }
+                else {
+                    print("Register Succeeded")
+                }
+            }
+        }
     }
+
     
     func determineSignInOrRegister(){
         
@@ -67,6 +115,14 @@ class SignUpViewController: UIViewController {
             self.isRider = false
             print("I'm a driver")
         }
+    }
+    
+    func showAlert(title: String, message: String){
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+        
     }
     
     

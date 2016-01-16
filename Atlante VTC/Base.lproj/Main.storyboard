@@ -94,7 +94,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="riderDriverControl" destination="rdX-hz-OXA" id="aYG-cm-eeq"/>
+                        <outlet property="password" destination="k2a-aA-Yo4" id="8hA-3q-FYu"/>
+                        <outlet property="riderDriverControl" destination="rdX-hz-OXA" id="meI-FE-eKA"/>
+                        <outlet property="username" destination="yEC-zD-8yp" id="bxu-qC-FVY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vH9-QA-flA" userLabel="First Responder" sceneMemberID="firstResponder"/>

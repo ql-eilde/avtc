@@ -12,26 +12,18 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var riderDriverControl: UISegmentedControl!
     
     var buttonTitlePressed: String?
     var isSignIn: Bool!
+    var isRider: Bool!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        if buttonTitlePressed != nil {
-            if buttonTitlePressed == "signIn" {
-                isSignIn = true
-                print(buttonTitlePressed)
-                print(isSignIn)
-            }
-        }
-        else {
-            isSignIn = false
-            print("Register")
-        }
+    
+        self.determineSignInOrRegister()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +36,37 @@ class SignUpViewController: UIViewController {
     }
 
     @IBAction func done(sender: UIBarButtonItem) {
+    }
+    
+    func determineSignInOrRegister(){
+        
+        if buttonTitlePressed != nil {
+            if buttonTitlePressed == "signIn" {
+                isSignIn = true
+                self.navigationController!.topViewController!.title = "Sign In"
+                
+                print("SignIn")
+            }
+        }
+        else {
+            isSignIn = false
+            self.navigationController!.topViewController!.title = "Register"
+            self.riderDriverControl.hidden = false
+            
+            print("Register")
+        }
+    }
+    
+    @IBAction func riderDriver(sender: UISegmentedControl) {
+        
+        if self.riderDriverControl.selectedSegmentIndex == 0 {
+            self.isRider = true
+            print("I'm a rider")
+        }
+        else {
+            self.isRider = false
+            print("I'm a driver")
+        }
     }
     
     

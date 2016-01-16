@@ -56,13 +56,29 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="rdX-hz-OXA">
+                                <rect key="frame" x="249" y="252" width="103" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="103" id="Q8v-Nv-X4J"/>
+                                    <constraint firstAttribute="height" constant="28" id="VSh-Oa-Dr2"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Rider"/>
+                                    <segment title="Driver"/>
+                                </segments>
+                                <connections>
+                                    <action selector="riderDriver:" destination="Zac-M6-mY0" eventType="valueChanged" id="Epb-pC-jXj"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="rdX-hz-OXA" firstAttribute="top" secondItem="k2a-aA-Yo4" secondAttribute="bottom" constant="42" id="R8x-4d-G8Y"/>
                             <constraint firstItem="k2a-aA-Yo4" firstAttribute="centerX" secondItem="L66-SY-jtr" secondAttribute="centerX" id="Vla-mI-mdM"/>
                             <constraint firstItem="k2a-aA-Yo4" firstAttribute="top" secondItem="yEC-zD-8yp" secondAttribute="bottom" constant="21" id="Y9S-SO-7hW"/>
                             <constraint firstItem="yEC-zD-8yp" firstAttribute="centerX" secondItem="L66-SY-jtr" secondAttribute="centerX" id="dVq-ax-vqM"/>
                             <constraint firstItem="yEC-zD-8yp" firstAttribute="top" secondItem="p3H-N1-icK" secondAttribute="bottom" constant="65" id="ipJ-x9-IcV"/>
+                            <constraint firstItem="rdX-hz-OXA" firstAttribute="centerX" secondItem="L66-SY-jtr" secondAttribute="centerX" id="xgq-B8-5HN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sign In" id="gtq-vb-bDV">
@@ -77,6 +93,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="riderDriverControl" destination="rdX-hz-OXA" id="aYG-cm-eeq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vH9-QA-flA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

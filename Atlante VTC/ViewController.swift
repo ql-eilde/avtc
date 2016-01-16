@@ -97,6 +97,7 @@ class ViewController: UIViewController {
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let signUpVC: SignUpViewController = storyBoard.instantiateViewControllerWithIdentifier("signUp") as! SignUpViewController
+        signUpVC.buttonTitlePressed = sender.titleLabel?.text
         let navigationController = UINavigationController(rootViewController: signUpVC)
         
         self.presentViewController(navigationController, animated: true, completion: nil)
@@ -104,7 +105,13 @@ class ViewController: UIViewController {
     }
     
     func registerButtonPressed(sender: UIButton!){
-        print("Register")
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let signUpVC: SignUpViewController = storyBoard.instantiateViewControllerWithIdentifier("signUp") as! SignUpViewController
+        let navigationController = UINavigationController(rootViewController: signUpVC)
+        
+        self.presentViewController(navigationController, animated: true, completion: nil)
+
     }
 
 

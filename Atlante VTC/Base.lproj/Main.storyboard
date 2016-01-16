@@ -66,8 +66,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sign In" id="gtq-vb-bDV">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="7Q5-9O-KO3"/>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="37l-Uh-QWy"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7Q5-9O-KO3">
+                            <connections>
+                                <action selector="cancel:" destination="Zac-M6-mY0" id="EwD-l7-j0H"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="37l-Uh-QWy">
+                            <connections>
+                                <action selector="done:" destination="Zac-M6-mY0" id="qX4-tp-GHE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vH9-QA-flA" userLabel="First Responder" sceneMemberID="firstResponder"/>

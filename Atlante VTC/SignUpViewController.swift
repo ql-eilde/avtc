@@ -13,12 +13,25 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
-    
+    var buttonTitlePressed: String?
+    var isSignIn: Bool!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        if buttonTitlePressed != nil {
+            if buttonTitlePressed == "signIn" {
+                isSignIn = true
+                print(buttonTitlePressed)
+                print(isSignIn)
+            }
+        }
+        else {
+            isSignIn = false
+            print("Register")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,7 +39,14 @@ class SignUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func cancel(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
+    @IBAction func done(sender: UIBarButtonItem) {
+    }
+    
+    
     /*
     // MARK: - Navigation
 

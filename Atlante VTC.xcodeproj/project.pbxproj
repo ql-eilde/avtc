@@ -27,6 +27,7 @@
 		D6052D561C49AC5E00B0282A /* videoOber.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D6052D551C49AC5E00B0282A /* videoOber.mp4 */; };
 		D6052D591C49AC8600B0282A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6052D571C49AC8600B0282A /* AVFoundation.framework */; };
 		D6052D5A1C49AC8600B0282A /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6052D581C49AC8600B0282A /* AVKit.framework */; };
+		D6052D5C1C4A7FAF00B0282A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6052D5B1C4A7FAF00B0282A /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		D6052D551C49AC5E00B0282A /* videoOber.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = videoOber.mp4; sourceTree = "<group>"; };
 		D6052D571C49AC8600B0282A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D6052D581C49AC8600B0282A /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		D6052D5B1C4A7FAF00B0282A /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				D6052D2A1C49264400B0282A /* AppDelegate.swift */,
 				D6052D2C1C49264400B0282A /* ViewController.swift */,
+				D6052D5B1C4A7FAF00B0282A /* SignUpViewController.swift */,
 				D6052D2E1C49264400B0282A /* Main.storyboard */,
 				D6052D311C49264400B0282A /* Assets.xcassets */,
 				D6052D331C49264400B0282A /* LaunchScreen.storyboard */,
@@ -203,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6052D5C1C4A7FAF00B0282A /* SignUpViewController.swift in Sources */,
 				D6052D2D1C49264400B0282A /* ViewController.swift in Sources */,
 				D6052D2B1C49264400B0282A /* AppDelegate.swift in Sources */,
 			);
@@ -317,6 +321,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -332,6 +337,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

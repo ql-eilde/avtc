@@ -24,7 +24,73 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="183" y="681"/>
+            <point key="canvasLocation" x="149" y="875"/>
+        </scene>
+        <!--Sign In-->
+        <scene sceneID="DIz-az-3s1">
+            <objects>
+                <viewController storyboardIdentifier="signUp" id="Zac-M6-mY0" customClass="SignUpViewController" customModule="Atlante_VTC" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p3H-N1-icK"/>
+                        <viewControllerLayoutGuide type="bottom" id="aLS-Aj-o4R"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L66-SY-jtr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yEC-zD-8yp">
+                                <rect key="frame" x="208" y="129" width="185" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="185" id="QCd-nb-5EK"/>
+                                    <constraint firstAttribute="height" constant="30" id="jti-yQ-ep2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k2a-aA-Yo4">
+                                <rect key="frame" x="208" y="180" width="185" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="B2F-h3-XEy"/>
+                                    <constraint firstAttribute="width" constant="185" id="G6D-Uf-Wgx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="k2a-aA-Yo4" firstAttribute="centerX" secondItem="L66-SY-jtr" secondAttribute="centerX" id="Vla-mI-mdM"/>
+                            <constraint firstItem="k2a-aA-Yo4" firstAttribute="top" secondItem="yEC-zD-8yp" secondAttribute="bottom" constant="21" id="Y9S-SO-7hW"/>
+                            <constraint firstItem="yEC-zD-8yp" firstAttribute="centerX" secondItem="L66-SY-jtr" secondAttribute="centerX" id="dVq-ax-vqM"/>
+                            <constraint firstItem="yEC-zD-8yp" firstAttribute="top" secondItem="p3H-N1-icK" secondAttribute="bottom" constant="65" id="ipJ-x9-IcV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sign In" id="gtq-vb-bDV">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="7Q5-9O-KO3"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="37l-Uh-QWy"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vH9-QA-flA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1611" y="875"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aua-A4-Tvo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jOR-Nh-Hjq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PvQ-kL-CbU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Zac-M6-mY0" kind="relationship" relationship="rootViewController" id="GAe-i3-7TW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fLI-mw-Fl6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="799" y="875"/>
         </scene>
     </scenes>
 </document>

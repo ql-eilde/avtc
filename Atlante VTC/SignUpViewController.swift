@@ -14,6 +14,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var riderDriverControl: UISegmentedControl!
+    @IBOutlet weak var email: UITextField!
     
     var buttonTitlePressed: String?
     var isSignIn: Bool!
@@ -41,7 +42,7 @@ class SignUpViewController: UIViewController {
         if isSignIn == false {
             //Register the user
             
-            if self.username.text == "" || self.password.text == "" || self.riderDriverControl.selectedSegmentIndex == -1 {
+            if self.username.text == "" || self.password.text == "" || self.email.text == "" || self.riderDriverControl.selectedSegmentIndex == -1 {
                 if self.username.text == "" {
                     self.username.layer.borderColor = UIColor.redColor().CGColor
                     self.username.layer.borderWidth = 1.0
@@ -49,6 +50,10 @@ class SignUpViewController: UIViewController {
                 if self.password.text == "" {
                     self.password.layer.borderColor = UIColor.redColor().CGColor
                     self.password.layer.borderWidth = 1.0
+                }
+                if self.email.text == "" {
+                    self.email.layer.borderColor = UIColor.redColor().CGColor
+                    self.email.layer.borderWidth = 1.0
                 }
                 if self.riderDriverControl.selectedSegmentIndex == -1 {
                     self.riderDriverControl.layer.borderColor = UIColor.redColor().CGColor
@@ -58,28 +63,39 @@ class SignUpViewController: UIViewController {
                 }
             }
             else {
-                isSignIn = true
+                var user = PFUser()
+                
+                user.username = self.username.text
+                user.password = self.password.text
+                user.email = self.email.text
+                
+                user["isRider"] = self.isRider
+                
+                user.signUpInBackgroundWithBlock {
+                    (succeeded: Bool, error: NSError?) -> Void in
+                    if let error = error {
+                        let errorString = error.userInfo["error"] as? NSString
+                        self.showAlert("Error Registering", message: String(errorString))
+                    }
+                    else {
+                        print("Register Succeeded")
+                    }
+                }
             }
             
         }
-        if isSignIn == true {
+        else {
             //Sign in code
-    
-            var user = PFUser()
-            
-            user.username = self.username.text
-            user.password = self.password.text
-            
-            user["isRider"] = self.isRider
-            
-            user.signUpInBackgroundWithBlock {
-                (succeeded: Bool, error: NSError?) -> Void in
-                if let error = error {
-                    let errorString = error.userInfo["error"] as? NSString
-                    self.showAlert("Error Registering", message: String(errorString))
-                }
-                else {
-                    print("Register Succeeded")
+            PFUser.logInWithUsernameInBackground(self.username.text!, password: self.password.text!) {
+                (user: PFUser?, error: NSError?) -> Void in
+                if user != nil {
+                    // Do stuff after successful login.
+                    print("Login Successful")
+                } else {
+                    // The login failed. Check error to see why.
+                    if let errorInfo = error?.userInfo["error"] as? String {
+                        self.showAlert("Sign Up Failed", message: errorInfo)
+                    }
                 }
             }
         }
@@ -100,6 +116,7 @@ class SignUpViewController: UIViewController {
             isSignIn = false
             self.navigationController!.topViewController!.title = "Register"
             self.riderDriverControl.hidden = false
+            self.email.hidden = false
             
             print("Register")
         }
